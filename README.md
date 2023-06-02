@@ -1,4 +1,4 @@
-# Topic Adaptation
+# Topical Sentence Embedding Adaptation
 This repository contains the source code for an experiment conducted in the field of computer science and natural language processing (NLP). The goal of the experiment is to explore the applicability of domain adaptation for clustering (topic modeling) by adapting a dataset from a specific domain.
 
 ## Experiment Overview
