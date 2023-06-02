@@ -1,0 +1,6 @@
+scikit-learn
+sentence-transformers
+tensorflow_hub
+pandas
+nltk
+umap-learn
