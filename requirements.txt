@@ -1,6 +1,10 @@
-scikit-learn
-sentence-transformers
-tensorflow_hub
+tqdm
+numpy
 pandas
+joblib
 nltk
-umap-learn
+tensorflow
+keras
+scikit-learn
+torch
+transformers

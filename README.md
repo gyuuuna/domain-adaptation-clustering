@@ -1,24 +1,29 @@
-# Sentence Embedding Adaptation
-This repository contains the source code for an experiment conducted in the field of computer science and natural language processing (NLP). The goal of the experiment is to explore the applicability of domain adaptation for clustering (topic modeling) by adapting a dataset from a specific domain.
+# Task-Adaptation Improvement with Data Augmentation
+This repository provides an implementation for improving task-adaptation by augmenting data using domain-adapted sentence embeddings. The method described here focuses on embedding-based domain adaptation using DAPT (Domain-Adaptive Pretrained Transformer) on sentence embeddings. The main idea is to leverage contrastive loss and triplet loss to differentiate whether two sentences belong to the same label, rather than focusing on specific labels.
 
-## Experiment Overview
-The experiment involves performing domain adaptation on a dataset to enable clustering (topic modeling) within a specific domain. The following steps were followed:
+## DAPT on Embedding
+To perform domain adaptation on sentence embeddings, the following steps are followed:
 
-1. Dataset Selection:
-- OCTIS: The OCTIS framework was used for dataset preprocessing.
-    - Health News in Twitter: A dataset related to health news on Twitter, which can be loaded using OCTIS.
-- Topic Modeling for Research Articles: A dataset containing research articles for topic modeling, contributed by Abishek Sudarshan.
+1. Sentence Embedding: Train a Siamese model with GloVe embeddings using a contrastive loss function. The Siamese model takes pairs of sentences and outputs their embeddings. This embedding process captures information about the domain (label) of the sentences.
 
-2. Domain Adaptation:
-- A Simple Method for Domain Adaptation of Sentence Embeddings
-3. Clustering & Text Segmentation:
-- UMAP: The Uniform Manifold Approximation and Projection (UMAP) algorithm was used for dimensionality reduction
-- Unsupervised Clustering: Various unsupervised clustering algorithms were employed, including agglomerative clustering, divisive clustering, k-means, and DBSCAN (HDBSCAN).
+2. Data Augmentation: Use the trained encoder to generate embeddings for both task-related data (with labels) and unlabeled domain data.
 
-## Repository Structure
-The repository is structured as follows:
-(Work in process)
+3. Clustering: Cluster the unlabeled domain data based on similarity to the task data embeddings. Select data points from the unlabeled domain data that have similar embeddings to the task data.
 
-## Usage
-To reproduce the experiment, follow these steps:
-(Work in process)
+4. Grouping: Group the task data by labels and sample N queries from each label. Similarly, sample M queries from the unlabeled domain data for each label.
+
+5. Selection: Select the top-K domain data records that are close to the selected task data records based on their embeddings.
+
+The augmented data, obtained through clustering and selection, can be used to improve task-adaptation performance.
+
+## Downstream Task: AGNEWS Topic Classification
+The downstream task used in this repository is AGNEWS topic classification. The available data for this task is as follows:
+
+- Training data: Approximately 130,000 labeled sentences.
+- Development data: Approximately 10,000 labeled sentences.
+- Test data: Approximately 10,000 labeled sentences.
+
+## Model
+For DAPT embeddings, a Siamese model with contrastive loss and GloVe embeddings is used. This model determines whether pairs of data samples belong to the same task across different domains.
+
+For TAPT (Task-Adaptive Pretraining), a RoBERTa baseline model is used. It is pretrained on a large corpus of unlabeled text data. The pretrained RoBERTa model is then fine-tuned using the RoberaForSequenceClassification implementation provided by Hugging Face.
