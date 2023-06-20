@@ -3,9 +3,9 @@ This repository provides an implementation for improving task-adaptation by augm
 
 ## Data downloads
 + task data (ag_news) : https://github.com/allenai/dont-stop-pretraining
-  `curl -Lo train.jsonl https://allennlp.s3-us-west-2.amazonaws.com/dont_stop_pretraining/data/ag/train.jsonl
-curl -Lo dev.jsonl https://allennlp.s3-us-west-2.amazonaws.com/dont_stop_pretraining/data/ag/dev.jsonl
-curl -Lo test.jsonl https://allennlp.s3-us-west-2.amazonaws.com/dont_stop_pretraining/data/ag/test.jsonl`
+  + `curl -Lo train.jsonl https://allennlp.s3-us-west-2.amazonaws.com/dont_stop_pretraining/data/ag/train.jsonl`
+  + `curl -Lo dev.jsonl https://allennlp.s3-us-west-2.amazonaws.com/dont_stop_pretraining/data/ag/dev.jsonl`
+  + `curl -Lo test.jsonl https://allennlp.s3-us-west-2.amazonaws.com/dont_stop_pretraining/data/ag/test.jsonl`
 + non task data (cnn_news) : https://www.kaggle.com/datasets/hadasu92/cnn-articles
 
 ## DAPT on Embedding
