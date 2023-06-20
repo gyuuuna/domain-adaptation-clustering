@@ -8,6 +8,9 @@ This repository provides an implementation for improving task-adaptation by augm
   + `curl -Lo test.jsonl https://allennlp.s3-us-west-2.amazonaws.com/dont_stop_pretraining/data/ag/test.jsonl`
 + non task data (cnn_news) : https://www.kaggle.com/datasets/hadasu92/cnn-articles
 
+## Data converting
+To convert jsonl file to csv, see `data_converting.ipynb`.
+
 ## DAPT on Embedding
 To perform domain adaptation on sentence embeddings, the following steps are followed:
 
