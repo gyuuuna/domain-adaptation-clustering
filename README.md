@@ -1,6 +1,13 @@
 # Task-Adaptation Improvement with Data Augmentation
 This repository provides an implementation for improving task-adaptation by augmenting data using domain-adapted sentence embeddings. The method described here focuses on embedding-based domain adaptation using DAPT (Domain-Adaptive Pretrained Transformer) on sentence embeddings. The main idea is to leverage contrastive loss and triplet loss to differentiate whether two sentences belong to the same label, rather than focusing on specific labels.
 
+## Data downloads
++ task data (ag_news) : https://github.com/allenai/dont-stop-pretraining
+  `curl -Lo train.jsonl https://allennlp.s3-us-west-2.amazonaws.com/dont_stop_pretraining/data/ag/train.jsonl
+curl -Lo dev.jsonl https://allennlp.s3-us-west-2.amazonaws.com/dont_stop_pretraining/data/ag/dev.jsonl
+curl -Lo test.jsonl https://allennlp.s3-us-west-2.amazonaws.com/dont_stop_pretraining/data/ag/test.jsonl`
++ non task data (cnn_news) : https://www.kaggle.com/datasets/hadasu92/cnn-articles
+
 ## DAPT on Embedding
 To perform domain adaptation on sentence embeddings, the following steps are followed:
 
